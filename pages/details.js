@@ -1,6 +1,5 @@
 import Head from "next/head";
 import dynamic from 'next/dynamic'
-import Review from "../container/Review";
 
 const UserDATA = dynamic(
   () => import('../components/UserData'),
@@ -15,7 +14,6 @@ export default function Details() {
         <title>User Details</title>
       </Head>
       <UserDATA />
-      <Review />
     </div>
   );
 }
