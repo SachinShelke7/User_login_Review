@@ -36,6 +36,8 @@ export default function Home() {
       window.localStorage.removeItem("firstName");
       window.localStorage.removeItem("lastName");
       window.localStorage.removeItem("businessName");
+      window.localStorage.removeItem("gender");
+      window.localStorage.removeItem("age");
     }
   }, [cookies.user]);
 
@@ -45,7 +47,7 @@ export default function Home() {
         <title>User_Review</title>
       </Head>
       <div className="w-full h-screen flex items-center justify-center bg-gray-300 text-white font-serif">
-        <div className="shadow-lg shadow-[#20202a] bg-[#252632] w-[45%] p-2 rounded-sm">
+        <div className="shadow-lg shadow-[#20202a] bg-[#252632] w-[90%] sm:w-[75%] md:w-[65%] lg:w-[55%] p-2 rounded-sm">
           <form
             onSubmit={() => handleSubmit()}
             className="flex flex-col space-y-5"
@@ -53,8 +55,8 @@ export default function Home() {
             <h2 className="text-center font-medium text-2xl border-b border-white">
               Fill The Details
             </h2>
-            <div className="flex space-x-5">
-              <div className="w-1/2">
+            <div className="flex flex-col md:flex-row space-y-5 md:space-x-5 md:space-y-0">
+              <div className="w-full md:w-1/2">
                 <label htmlFor="userName">UserName:</label>
                 <input
                   type="text"
@@ -65,7 +67,7 @@ export default function Home() {
                   required
                 />
               </div>
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <label htmlFor="password">Password:</label>
                 <input
                   type="password"
@@ -111,15 +113,18 @@ export default function Home() {
                 <input
                   type="radio"
                   value="Male"
+                  name="gender"
                   checked={gender === 'Male'}
-                  onClick={() => setGender("Male")}
+                  onChange={() => setGender("Male")}
+                  required
                 />
                 Male
                 <input
                   type="radio"
                   value="Female"
+                  name="gender"
                   checked={gender === 'Female'}
-                  onClick={() => setGender("Female")}
+                  onChange={() => setGender("Female")}
                 />
                 Female
               </div>
